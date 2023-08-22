@@ -32,7 +32,11 @@ export default function Chart() {
   };
 
   const getPoint = () => {
-    return formState.data && formState.data.point;
+    return (
+      formState.data && [
+        [formState.data.point.p_wf, formState.data.point.q_liq],
+      ]
+    );
   };
 
   const newOptions = {
