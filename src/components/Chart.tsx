@@ -10,8 +10,8 @@ export default function Chart() {
   const getVlpData = () => {
     return formState.data && formState.data.vlp.q_liq && formState.data.vlp.p_wf
       ? formState.data.vlp.q_liq.reduce(
-          (acc: number[][], item: number, index: number) => {
-            acc.push([item, formState.data.vlp.p_wf[index]]);
+          (acc: string[][], item: string, index: number) => {
+            formState.data && acc.push([item, formState.data.vlp.p_wf[index]]);
             return acc;
           },
           []
@@ -22,8 +22,8 @@ export default function Chart() {
   const getIprData = () => {
     return formState.data && formState.data.ipr.q_liq && formState.data.ipr.p_wf
       ? formState.data.ipr.q_liq.reduce(
-          (acc: number[][], item: number, index: number) => {
-            acc.push([item, formState.data.ipr.p_wf[index]]);
+          (acc: string[][], item: string, index: number) => {
+            formState.data && acc.push([item, formState.data.ipr.p_wf[index]]);
             return acc;
           },
           []

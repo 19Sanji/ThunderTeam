@@ -1,5 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+type responseType = {
+  point: { p_wf: string; q_liq: string };
+  ipr: {
+    q_liq: string[];
+    p_wf: string[];
+  };
+  vlp: {
+    q_liq: string[];
+    p_wf: string[];
+  };
+};
+
 export interface FormState {
   inclinometry: {
     MD: string | null;
@@ -27,7 +39,7 @@ export interface FormState {
   p_res: string | null;
 
   loading: boolean;
-  data: any;
+  data: responseType | null;
 }
 
 const initialState: FormState = {
