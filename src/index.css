@@ -53,3 +53,10 @@ code {
 .p-b-1 {
   padding-bottom: 1rem;
 }
+
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}

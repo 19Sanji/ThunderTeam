@@ -25,6 +25,9 @@ export interface FormState {
   h_res: string | null;
   pi: string | null;
   p_res: string | null;
+
+  loading: boolean;
+  data: any;
 }
 
 const initialState: FormState = {
@@ -52,6 +55,9 @@ const initialState: FormState = {
   h_res: null,
   pi: null,
   p_res: null,
+
+  loading: false,
+  data: null,
 };
 
 export const formSlice = createSlice({
@@ -144,6 +150,14 @@ export const formSlice = createSlice({
       state.p_res = null;
     },
 
+    setData: (state, action: PayloadAction<any>) => {
+      state.data = action.payload;
+    },
+
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload;
+    },
+
     checkMetrics: (state) => {},
   },
 });
@@ -167,6 +181,8 @@ export const {
   writePRes,
   clearAllMetrics,
   checkMetrics,
+  setData,
+  setLoading,
 } = formSlice.actions;
 
 export default formSlice.reducer;

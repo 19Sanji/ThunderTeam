@@ -60,3 +60,12 @@ export const writeMDAction =
 export const writePResAction =
   (value: string | null) => (dispatch: AppDispatch) =>
     dispatch(formSlice.actions.writePRes(value));
+
+export const setDataAction = (value: any) => (dispatch: AppDispatch) =>
+  dispatch(formSlice.actions.setData(value));
+
+export const setLoadingAction = (value: boolean) => (dispatch: AppDispatch) =>
+  dispatch(formSlice.actions.setLoading(value));
+
+export const clearAllMetrics = () => (dispatch: AppDispatch) =>
+  dispatch(formSlice.actions.clearAllMetrics());

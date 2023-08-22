@@ -5,11 +5,16 @@ import { Sidebar } from "@consta/uikit/Sidebar";
 import { Button } from "@consta/uikit/Button";
 
 import { Form } from "./components/Form";
-import { clearAllMetrics } from "./store/slices/formSlice";
 import { useSelector } from "react-redux";
 import { formStateSelector } from "./store/selectors/storeSelectors";
 import { useAppDispatch } from "./store/store";
 
+import { mockData } from "./mockData";
+import {
+  setLoadingAction,
+  setDataAction,
+  clearAllMetrics,
+} from "./store/actions/formActions";
 import axios from "axios";
 
 type dataType = {
@@ -57,22 +62,22 @@ function App() {
     setIsSidebarOpen(false);
   };
 
-  // async function getData() {
-  //   try {
-  //     const response = await axios.get("http://localhost:8000");
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
+  async function sendData(data: dataType) {
+    dispatch(setLoadingAction(true));
+    // setTimeout(() => {
+    //   dispatch(setDataAction(mockData));
+    //   dispatch(setLoadingAction(false));
+    // }, 5000);
 
-  async function sendData() {
-    try {
-      const response = await axios.post("http://localhost:8000");
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
+    await axios
+      .post("http://localhost:8080", data)
+      .then(function (response) {
+        dispatch(setDataAction(response));
+        dispatch(setLoadingAction(false));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   const onSave = () => {
@@ -121,8 +126,7 @@ function App() {
     data.pi = formState.pi;
     data.p_res = formState.p_res;
 
-    console.log("data", data);
-
+    sendData(data);
     closeSidebar();
   };
 
@@ -140,7 +144,8 @@ function App() {
       formState.pvt.rp !== null &&
       formState.pvt.t_res !== null &&
       formState.tubing.h_mes !== null &&
-      formState.tubing.tubing_d !== null
+      formState.tubing.tubing_d !== null &&
+      formState.p_res !== null
     ) {
       setIsSaveButtonDisabled(false);
     }
@@ -165,7 +170,7 @@ function App() {
             label="Сделать прогноз"
             width="default"
             onClick={onSave}
-            disabled={isSaveButtonDisabled}
+            // disabled={isSaveButtonDisabled}
           />
           <Button
             size="m"
