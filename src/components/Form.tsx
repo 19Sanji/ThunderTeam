@@ -22,8 +22,8 @@ import {
   writeTVDAction,
   writeMDAction,
   writePResAction,
+  writePiAction,
 } from "../store/actions/formActions";
-import { writePi } from "../store/slices/formSlice";
 
 type Props = {};
 
@@ -44,13 +44,61 @@ export const Form: FC<Props> = () => {
         <TextField
           className="m-t-1"
           onChange={({ value }) => {
-            dispatch(writeHResAction(value));
+            dispatch(writeWctAction(value));
           }}
-          value={getValue(formState.h_res)}
+          value={getValue(formState.pvt.wct)}
           type="text"
-          placeholder={Names.h_mes}
+          placeholder={Names.wct}
           width="full"
-          rightSide={Metrics.h_mes}
+          rightSide={Metrics.wct}
+        />
+        <TextField
+          className="m-t-1"
+          onChange={({ value }) => {
+            dispatch(writeGammaOilAction(value));
+          }}
+          value={getValue(formState.pvt.gamma_oil)}
+          type="text"
+          placeholder={Names.gamma_oil}
+          width="full"
+          // max={1}
+          // min={0.5}
+          rightSide={Metrics.gamma_oil}
+        />
+        <TextField
+          className="m-t-1"
+          onChange={({ value }) => {
+            dispatch(writeGammaGasAction(value));
+          }}
+          value={getValue(formState.pvt.gamma_gas)}
+          type="text"
+          placeholder={Names.gamma_gas}
+          width="full"
+          rightSide={Metrics.gamma_gas}
+        />
+        <TextField
+          className="m-t-1"
+          onChange={({ value }) => {
+            dispatch(writeGammaWatAction(value));
+          }}
+          value={getValue(formState.pvt.gamma_wat)}
+          type="text"
+          placeholder={Names.gamma_wat}
+          width="full"
+          rightSide={Metrics.gamma_wat}
+        />
+        <TextField
+          className="m-t-1"
+          onChange={({ value }) => {
+            dispatch(writeTResAction(value));
+          }}
+          value={getValue(formState.pvt.t_res)}
+          type="text"
+          placeholder={Names.t_res}
+          width="full"
+          max={263}
+          min={20}
+          rightSide={Metrics.t_res}
         />
         <TextField
           className="m-t-1"
@@ -77,54 +125,6 @@ export const Form: FC<Props> = () => {
         <TextField
           className="m-t-1"
           onChange={({ value }) => {
-            dispatch(writeTResAction(value));
-          }}
-          value={getValue(formState.pvt.t_res)}
-          type="text"
-          placeholder={Names.t_res}
-          width="full"
-          max={263}
-          min={20}
-          rightSide={Metrics.t_res}
-        />
-        <TextField
-          className="m-t-1"
-          onChange={({ value }) => {
-            dispatch(writeGammaWatAction(value));
-          }}
-          value={getValue(formState.pvt.gamma_wat)}
-          type="text"
-          placeholder={Names.gamma_wat}
-          width="full"
-          rightSide={Metrics.gamma_wat}
-        />
-        <TextField
-          className="m-t-1"
-          onChange={({ value }) => {
-            dispatch(writeGammaGasAction(value));
-          }}
-          value={getValue(formState.pvt.gamma_gas)}
-          type="text"
-          placeholder={Names.gamma_gas}
-          width="full"
-          rightSide={Metrics.gamma_gas}
-        />
-        <TextField
-          className="m-t-1"
-          onChange={({ value }) => {
-            dispatch(writeGammaOilAction(value));
-          }}
-          value={getValue(formState.pvt.gamma_oil)}
-          type="text"
-          placeholder={Names.gamma_oil}
-          width="full"
-          // max={400}
-          // min={50}
-          rightSide={Metrics.gamma_oil}
-        />
-        <TextField
-          className="m-t-1"
-          onChange={({ value }) => {
             dispatch(writeRpAction(value));
           }}
           value={getValue(formState.pvt.rp)}
@@ -134,28 +134,6 @@ export const Form: FC<Props> = () => {
           max={400}
           min={50}
           rightSide={Metrics.rp}
-        />
-        <TextField
-          className="m-t-1"
-          onChange={({ value }) => {
-            dispatch(writeWctAction(value));
-          }}
-          value={getValue(formState.pvt.wct)}
-          type="text"
-          placeholder={Names.wct}
-          width="full"
-          rightSide={Metrics.wct}
-        />
-        <TextField
-          className="m-t-1"
-          onChange={({ value }) => {
-            dispatch(writeHMesAction(value));
-          }}
-          value={getValue(formState.tubing.h_mes)}
-          type="text"
-          placeholder={Names.h_mes}
-          width="full"
-          rightSide={Metrics.h_mes}
         />
         <TextField
           className="m-t-1"
@@ -182,24 +160,46 @@ export const Form: FC<Props> = () => {
         <TextField
           className="m-t-1"
           onChange={({ value }) => {
-            dispatch(writePi(value));
+            dispatch(writeHResAction(value));
+          }}
+          value={getValue(formState.h_res)}
+          type="text"
+          placeholder={Names.h_res}
+          width="full"
+          rightSide={Metrics.h_res}
+        />
+        <TextField
+          className="m-t-1"
+          onChange={({ value }) => {
+            dispatch(writeHMesAction(value));
+          }}
+          value={getValue(formState.tubing.h_mes)}
+          type="text"
+          placeholder={Names.h_mes}
+          width="full"
+          rightSide={Metrics.h_mes}
+        />
+        <TextField
+          className="m-t-1"
+          onChange={({ value }) => {
+            dispatch(writePResAction(value));
+          }}
+          value={getValue(formState.p_res)}
+          type="text"
+          placeholder={Names.p_res}
+          width="full"
+          rightSide={Metrics.p_res}
+        />
+        <TextField
+          className="m-t-1"
+          onChange={({ value }) => {
+            dispatch(writePiAction(value));
           }}
           value={getValue(formState.pi)}
           type="text"
           placeholder={Names.pi}
           width="full"
           rightSide={Metrics.pi}
-        />
-        <TextField
-          className="m-t-1"
-          onChange={({ value }) => {
-            dispatch(writeTVDAction(value));
-          }}
-          value={getValue(formState.inclinometry.TVD)}
-          type="text"
-          placeholder={Names.TVD}
-          width="full"
-          rightSide={Metrics.TVD}
         />
         <TextField
           className="m-t-1"
@@ -215,13 +215,13 @@ export const Form: FC<Props> = () => {
         <TextField
           className="m-t-1"
           onChange={({ value }) => {
-            dispatch(writePResAction(value));
+            dispatch(writeTVDAction(value));
           }}
-          value={getValue(formState.p_res)}
+          value={getValue(formState.inclinometry.TVD)}
           type="text"
-          placeholder={Names.p_res}
+          placeholder={Names.TVD}
           width="full"
-          rightSide={Metrics.p_res}
+          rightSide={Metrics.TVD}
         />
       </div>
     </div>

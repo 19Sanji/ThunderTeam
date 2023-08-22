@@ -88,15 +88,13 @@ export default function Chart() {
   };
 
   return (
-    <div className="chart">
+    <div className="chart_content">
       {formState.loading ? (
         <Loader />
       ) : (
-        <HighchartsReact
-          className="h-500px"
-          highcharts={Highcharts}
-          options={newOptions}
-        />
+        <div className="chart">
+          <HighchartsReact highcharts={Highcharts} options={newOptions} />
+        </div>
       )}
     </div>
   );

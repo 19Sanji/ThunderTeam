@@ -54,9 +54,14 @@ code {
   padding-bottom: 1rem;
 }
 
-.chart {
+.chart_content {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 500px;
+  width: 100vw;
+}
+
+.chart {
+  width: 100%;
 }

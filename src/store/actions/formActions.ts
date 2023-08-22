@@ -67,5 +67,9 @@ export const setDataAction = (value: any) => (dispatch: AppDispatch) =>
 export const setLoadingAction = (value: boolean) => (dispatch: AppDispatch) =>
   dispatch(formSlice.actions.setLoading(value));
 
-export const clearAllMetrics = () => (dispatch: AppDispatch) =>
+export const clearAllMetricsAction = () => (dispatch: AppDispatch) =>
   dispatch(formSlice.actions.clearAllMetrics());
+
+export const writePiAction =
+  (value: string | null) => (dispatch: AppDispatch) =>
+    dispatch(formSlice.actions.writePi(value));

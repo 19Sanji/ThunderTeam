@@ -13,7 +13,7 @@ import { mockData } from "./mockData";
 import {
   setLoadingAction,
   setDataAction,
-  clearAllMetrics,
+  clearAllMetricsAction,
 } from "./store/actions/formActions";
 import axios from "axios";
 
@@ -52,25 +52,25 @@ function App() {
   const dispatch = useAppDispatch();
 
   const openSidebar = () => {
-    dispatch(clearAllMetrics());
+    dispatch(clearAllMetricsAction());
     setIsSidebarOpen(true);
   };
 
   const closeSidebar = () => {
-    dispatch(clearAllMetrics());
+    dispatch(clearAllMetricsAction());
     setIsSaveButtonDisabled(true);
     setIsSidebarOpen(false);
   };
 
   async function sendData(data: dataType) {
     dispatch(setLoadingAction(true));
-    // setTimeout(() => {
-    //   dispatch(setDataAction(mockData));
-    //   dispatch(setLoadingAction(false));
-    // }, 5000);
-
     await axios
-      .post("http://localhost:8080", data)
+      .post("http://localhost:8080", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data,
+      })
       .then(function (response) {
         dispatch(setDataAction(response));
         dispatch(setLoadingAction(false));
@@ -170,7 +170,7 @@ function App() {
             label="Сделать прогноз"
             width="default"
             onClick={onSave}
-            // disabled={isSaveButtonDisabled}
+            disabled={isSaveButtonDisabled}
           />
           <Button
             size="m"
