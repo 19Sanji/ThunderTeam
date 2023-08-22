@@ -51,6 +51,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.wct}
           width="full"
           rightSide={Metrics.wct}
+          labelPosition="top"
+          label={Names.wct}
         />
         <TextField
           className="m-t-1"
@@ -64,6 +66,8 @@ export const Form: FC<Props> = () => {
           // max={1}
           // min={0.5}
           rightSide={Metrics.gamma_oil}
+          labelPosition="top"
+          label={Names.gamma_oil}
         />
         <TextField
           className="m-t-1"
@@ -75,6 +79,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.gamma_gas}
           width="full"
           rightSide={Metrics.gamma_gas}
+          labelPosition="top"
+          label={Names.gamma_gas}
         />
         <TextField
           className="m-t-1"
@@ -86,6 +92,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.gamma_wat}
           width="full"
           rightSide={Metrics.gamma_wat}
+          labelPosition="top"
+          label={Names.gamma_wat}
         />
         <TextField
           className="m-t-1"
@@ -99,6 +107,8 @@ export const Form: FC<Props> = () => {
           max={263}
           min={20}
           rightSide={Metrics.t_res}
+          labelPosition="top"
+          label={Names.t_res}
         />
         <TextField
           className="m-t-1"
@@ -110,6 +120,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.geo_grad}
           width="full"
           rightSide={Metrics.geo_grad}
+          labelPosition="top"
+          label={Names.geo_grad}
         />
         <TextField
           className="m-t-1"
@@ -121,6 +133,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.p_wh}
           width="full"
           rightSide={Metrics.p_wh}
+          labelPosition="top"
+          label={Names.p_wh}
         />
         <TextField
           className="m-t-1"
@@ -134,6 +148,8 @@ export const Form: FC<Props> = () => {
           max={400}
           min={50}
           rightSide={Metrics.rp}
+          labelPosition="top"
+          label={Names.rp}
         />
         <TextField
           className="m-t-1"
@@ -145,6 +161,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.casing_d}
           width="full"
           rightSide={Metrics.casing_d}
+          labelPosition="top"
+          label={Names.casing_d}
         />
         <TextField
           className="m-t-1"
@@ -156,6 +174,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.tubing_d}
           width="full"
           rightSide={Metrics.tubing_d}
+          labelPosition="top"
+          label={Names.tubing_d}
         />
         <TextField
           className="m-t-1"
@@ -167,6 +187,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.h_res}
           width="full"
           rightSide={Metrics.h_res}
+          labelPosition="top"
+          label={Names.h_res}
         />
         <TextField
           className="m-t-1"
@@ -178,6 +200,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.h_mes}
           width="full"
           rightSide={Metrics.h_mes}
+          labelPosition="top"
+          label={Names.h_mes}
         />
         <TextField
           className="m-t-1"
@@ -189,6 +213,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.p_res}
           width="full"
           rightSide={Metrics.p_res}
+          labelPosition="top"
+          label={Names.p_res}
         />
         <TextField
           className="m-t-1"
@@ -200,6 +226,8 @@ export const Form: FC<Props> = () => {
           placeholder={Names.pi}
           width="full"
           rightSide={Metrics.pi}
+          labelPosition="top"
+          label={Names.pi}
         />
         <TextField
           className="m-t-1"
@@ -211,6 +239,9 @@ export const Form: FC<Props> = () => {
           placeholder={Names.MD}
           width="full"
           rightSide={Metrics.MD}
+          labelPosition="top"
+          label={Names.MD}
+          caption="Введите 3 значения через запятую"
         />
         <TextField
           className="m-t-1"
@@ -222,6 +253,9 @@ export const Form: FC<Props> = () => {
           placeholder={Names.TVD}
           width="full"
           rightSide={Metrics.TVD}
+          labelPosition="top"
+          label={Names.TVD}
+          caption="Введите 3 значения через запятую"
         />
       </div>
     </div>
