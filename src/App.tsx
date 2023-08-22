@@ -65,7 +65,7 @@ function App() {
   async function sendData(data: dataType) {
     dispatch(setLoadingAction(true));
     await axios
-      .post("http://localhost:8080", data, {
+      .post("http://localhost:8080/data", data, {
         headers: {
           "Content-Type": "application/json",
         },
