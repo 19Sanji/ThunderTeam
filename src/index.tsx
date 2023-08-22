@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
-
+import { Theme, presetGpnDefault } from "@consta/uikit/Theme";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,8 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Theme preset={presetGpnDefault}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </Theme>
   </React.StrictMode>
 );
-
