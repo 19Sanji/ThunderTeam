@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { formStateSelector } from "./store/selectors/storeSelectors";
 import { useAppDispatch } from "./store/store";
 
-import { mockData } from "./mockData";
+import { mockData, newTestData } from "./mockData";
 import {
   setLoadingAction,
   setDataAction,
@@ -64,14 +64,50 @@ function App() {
 
   async function sendData(data: dataType) {
     dispatch(setLoadingAction(true));
+
+    const testData = {
+      "p_res": 250,
+      "pi": 1,
+      "casing": {
+        "casing_d": 0.1
+      },
+      "geo_grad": 3,
+      "h_res": 1500,
+      "inclinometry": {
+        "MD": [
+          0,
+          1000,
+          1500
+        ],
+        "TVD": [
+          0,
+          1000,
+          1100
+        ]
+      },
+      "p_wh": 10,
+      "pvt": {
+        "gamma_gas": 0.7,
+        "gamma_oil": 0.8,
+        "gamma_wat": 1,
+        "rp": 100,
+        "t_res": 90,
+        "wct": 50
+      },
+      "tubing": {
+        "tubing_d": 0.052,
+        "h_mes": 1000
+      }
+    }
+
     await axios
-      .post("http://localhost:8080/data", data, {
+      .post("http://localhost:8080/data", newTestData, {
         headers: {
           "Content-Type": "application/json",
         },
       })
       .then(function (response) {
-        dispatch(setDataAction(response));
+        dispatch(setDataAction(response.data));
         dispatch(setLoadingAction(false));
       })
       .catch(function (error) {

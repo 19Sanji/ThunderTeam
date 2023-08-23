@@ -10,6 +10,7 @@ type responseType = {
     q_liq: string[];
     p_wf: string[];
   };
+  prom_data: string[][];
 };
 
 export interface FormState {
@@ -169,8 +170,6 @@ export const formSlice = createSlice({
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
     },
-
-    checkMetrics: (state) => {},
   },
 });
 
@@ -192,7 +191,6 @@ export const {
   writePi,
   writePRes,
   clearAllMetrics,
-  checkMetrics,
   setData,
   setLoading,
 } = formSlice.actions;

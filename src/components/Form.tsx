@@ -1,4 +1,4 @@
-import { AppDispatch, useAppDispatch } from "../store/store";
+import { useAppDispatch } from "../store/store";
 import { useSelector } from "react-redux";
 import { TextField, TextFieldPropValue } from "@consta/uikit/TextField";
 import { Text } from "@consta/uikit/Text";

@@ -6,12 +6,12 @@ import { Loader } from "@consta/uikit/Loader";
 
 export default function Chart() {
   const formState = useSelector(formStateSelector);
-
   const getVlpData = () => {
     return formState.data && formState.data.vlp.q_liq && formState.data.vlp.p_wf
       ? formState.data.vlp.q_liq.reduce(
-          (acc: string[][], item: string, index: number) => {
-            formState.data && acc.push([item, formState.data.vlp.p_wf[index]]);
+          (acc: number[][], item: string, index: number) => {
+            formState.data &&
+              acc.push([Number(item), Number(formState.data.vlp.p_wf[index])]);
             return acc;
           },
           []
@@ -34,7 +34,7 @@ export default function Chart() {
   const getPoint = () => {
     return (
       formState.data && [
-        [formState.data.point.p_wf, formState.data.point.q_liq],
+        [formState.data.point.q_liq, formState.data.point.p_wf],
       ]
     );
   };
@@ -86,6 +86,7 @@ export default function Chart() {
       },
       {
         name: "Режим работы",
+        marker: { lineWidth: 6, lineColor: "red" },
         data: getPoint(),
       },
     ],
